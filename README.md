@@ -83,7 +83,7 @@
 | links            | 个人自定义友情链接目录（你也可以定义为 friends）             |
 | happy            | 个人自定义娱乐项目目录                                       |
 | BingSiteAuth.xml | SEO：在必应搜索引擎进行提交站点信息                          |
-| CNAME            | 解析域名形式，使用某系插件需要在 source 目录加上 CNAME 配置文件 |
+| CNAME            | 解析域名形式，使用某些插件需要在 source 目录加上 CNAME 配置文件 |
 
 
 
@@ -191,7 +191,7 @@ nghttp3: 0.7.0
 
 ### 效果展示
 
-![](D:\work\createSpace\工具篇\hexo_blog\hexo-theme-next-效果展示.png)
+![https://s1.ax1x.com/2023/06/25/pCNWta9.png](https://s1.ax1x.com/2023/06/25/pCNWta9.png)
 
 
 
