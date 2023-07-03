@@ -606,17 +606,26 @@ OS name: "linux", version: "5.14.0-148.el9.x86_64", arch: "amd64", family: "unix
 [root@Centos9-Stream bin]# vim /usr/share/maven/conf/settings.xml
 ```
 
-**修改默认本地仓库存放目录**：找到localRepository，将如下内容开放：
+**修改默认本地仓库存放目录**：找到 **localRepository**，将如下内容开放：
 
 ![](https://s1.ax1x.com/2023/03/22/ppdIn5d.png)
+
+配置路径参考(Linux 平台)：
 
 ```xml
 <localRepository>/local/repo</localRepository>
 ```
 
+配置路径参考(Windows 平台)：
+
+```xml
+<localRepository>D:\Maven\repo</localRepository>
+```
 
 
-**配置Maven阿里镜像地址**，加入如下配置，**注意是在<mirrors> </mirrors>加入**：
+
+
+**配置Maven阿里镜像地址**，加入如下配置，**注意是在`<mirrors> </mirrors>`加入子节点`<mirror></mirror>`**：
 
 ![](https://s1.ax1x.com/2023/03/22/ppdIQ2t.png)
 
@@ -626,13 +635,30 @@ OS name: "linux", version: "5.14.0-148.el9.x86_64", arch: "amd64", family: "unix
           <id>aliyunmaven</id>
           <name>aliyun maven</name>
           <!-- 老版本url -->
-          <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+          <!--<url>https://maven.aliyun.com/nexus/content/groups/public/</url>-->
           <!-- 新版本url -->
-          <!--<url>https://maven.aliyun.com/repository/public/</url>-->
-          <mirrorOf>central</mirrorOf>        
+          <url>https://maven.aliyun.com/repository/public/</url>
+          <mirrorOf>*</mirrorOf>        
     </mirror>
   </mirrors>
 ```
+
+
+
+更多配置可以参考[阿里云云效](https://devops.aliyun.com/?channel=maven.aliyun) 
+
+> [阿里云云效](https://devops.aliyun.com/?channel=maven.aliyun) 是企业级一站式 DevOps 平台，覆盖产品从需求到运营的研发全生命周期，其中云效也提供了免费、可靠的Maven私有仓库 [Packages](https://packages.aliyun.com/?channel=maven.aliyun) 和代码管理仓库 [Codeup](https://codeup.aliyun.com/?channel=maven2codeup_pd)，欢迎您体验使用。
+>
+> 云效制品仓库 [Packages](https://packages.aliyun.com/?channel=maven.aliyun) 致力于帮助开发者统一管理各种开发语言在开发、构建过程中的依赖，构建成果（二进制制品）以及交付过程关键信息的重要组件。
+>
+> 云效代码管理 [Codeup](https://codeup.aliyun.com/?channel=maven2codeup_pd) 是阿里云出品的一款企业级代码管理平台，提供代码托管、代码评审、代码扫描、代码度量等功能，不限人数、超大容量且免费使用，全方位保护代码资产，帮助团队实现安全、稳定、高效的研发管理。
+
+| 仓库名称         | 阿里云仓库地址                                       | 阿里云仓库地址(老版)                                         | 源地址                                   |
+| :--------------- | :--------------------------------------------------- | :----------------------------------------------------------- | :--------------------------------------- |
+| central          | https://maven.aliyun.com/repository/central          | https://maven.aliyun.com/nexus/content/repositories/central  | https://repo1.maven.org/maven2/          |
+| public           | https://maven.aliyun.com/repository/public           | https://maven.aliyun.com/nexus/content/groups/public         | central仓和jcenter仓的聚合仓             |
+| gradle-plugin    | https://maven.aliyun.com/repository/gradle-plugin    | https://maven.aliyun.com/nexus/content/repositories/gradle-plugin | https://plugins.gradle.org/m2/           |
+| apache snapshots | https://maven.aliyun.com/repository/apache-snapshots | https://maven.aliyun.com/nexus/content/repositories/apache-snapshots | https://repository.apache.org/snapshots/ |
 
 
 
