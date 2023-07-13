@@ -79,10 +79,10 @@ cd distribution/target/nacos-server-$version/nacos/bin
 **nacos开源仓库**：
 https://github.com/alibaba/nacos
 
-目前nacos最新稳定版是2.2.1：
-https://github.com/alibaba/nacos/releases/tag/2.2.1
+目前 nacos 最新稳定版是 2.2.4：
+[https://github.com/alibaba/nacos/releases/tag/2.2.4](https://github.com/alibaba/nacos/releases/tag/2.2.4)
 
-当你看到这篇博文时，nacos 最新稳定版可能已经更新到 2.2.3 或者更高的版本。
+当你看到这篇博文时，nacos 最新稳定版可能已经更新到 2.2.4 或者更高的版本。
 
 下载很缓慢，可以使用在线工具箱加速，[雨月空间站](https://www.mintimate.cn/)（公共免费资源请适度使用）：
 https://tool.mintimate.cn/gh/
