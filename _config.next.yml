@@ -654,6 +654,9 @@ mediumzoom: false
 # For more information: https://apoorv.pro/lozad.js/demo/
 lazyload: true
 
+# 中文与英文之间自动插入白色空格，实际效果以最终显示为准
+# 不开启pangu插件示例效果：原始显示next当前最新稳定版本是v8.17.1
+# 开启 pangu 插件示例效果：原始显示 next 当前最新稳定版本是 v8.17.1
 # Automatically insert whitespace between CJK and half-width characters.
 # For more information: https://github.com/vinta/pangu.js
 # Server-side plugin: https://github.com/next-theme/hexo-pangu
