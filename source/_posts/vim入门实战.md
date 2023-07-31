@@ -358,9 +358,9 @@ set number
 初次使用，插件不在多，在于对你的操作有所提升。可以一步步尝试安装插件，对比哪些对你的日常工作有帮助。
 
 
-- vim-plug：用于管理插件。
-- NERDTree：用于增强目录树插件。
-- TarBag：用于显示标签插件（需要ctags支撑，Windows平台将ctags.exe文件置于vim根目录同级即可使用）
+- [vim-plug](https://github.com/junegunn/vim-plug) ：用于管理插件。
+- [NERDTree](https://github.com/preservim/nerdtree) ：用于增强目录树插件。
+- [TagBar](https://github.com/preservim/tagbar) ：用于显示标签插件（需要ctags支撑，Windows平台将ctags.exe文件置于vim根目录同级即可使用）
 例如：个人解压后vim路径：D:\gvim_9.0.1075_x64\vim90\，将ctags.exe放入vim90目录即可。
 
 如果当前用户根目录没有.vimrc 文件，则新增。
