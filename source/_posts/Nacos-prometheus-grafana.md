@@ -61,7 +61,7 @@ grafana 最新稳定版本更新到了 9.4.7 。
 
 
 
-# 运维篇：springboot与微服务组件nacos
+# springboot与微服务组件nacos
 
 此处主要以Linux（centos-stream-9）环境为主。如果非要在Windows平台使用，也是可以的。本人也在Windows平台测试过，同样可以正常运行。只是官方目前并不推荐在Windows平台使用，可能是还不够稳定吧。
 
@@ -95,8 +95,7 @@ grafana 最新稳定版本更新到了 9.4.7 。
 
 
 
-
-**必备环境**
+**测试环境**
 
 - Linux（centos-stream-9）
 - JDK17：支撑springboot服务启动
@@ -113,20 +112,22 @@ RHEL体系shell环境变量调用顺序：
 
 
 
-配置全局环境变量：vim /etc/profile，配置当前用户环境变量：vim .bash_profile 或者 .bashrc，加入配置全局变量我所列出的内容即可。什么时候配置全局用户，什么时候配置当前用户，各有各的应用场景。
+配置全局环境变量：`vim /etc/profile`，配置当前用户环境变量：`vim .bash_profile` 或者 .bashrc，加入配置全局变量我所列出的内容即可。什么时候配置全局用户，什么时候配置当前用户，各有各的应用场景。
 
-比如配置当前用户环境变量，我只在 test 用户配置测试，就不给你 demo 用户进行测试，我们互不干扰。
+- 比如配置当前用户环境变量，我只在 test 用户配置测试，就不给你 demo 用户进行测试，我们互不干扰。
 
-比如配置全局用户环境变量，我既要 test 用户配置测试，我又要 demo 用户进行测试，还要在 root 用户下使用，我全都要。
+- 比如配置全局用户环境变量，我既要 test 用户配置测试，我又要 demo 用户进行测试，还要在 root 用户下使用，我全都要。
+
+
 
 **如下分4步优化操作**：
 
-1. 解压jdk ：tar  -zxvf  jdk-17.0.4.1_linux-x64_bin.tar.gz
-2. 简化应用名称：mv  jdk-17.0.4.1_linux-x64_bin  jdk17
-3. 新建部署目录：mkdir  -p  /usr/java
-4. 指定部署目录：mv  jdk17  /usr/java/
+1. 解压jdk ：`tar  -zxvf  jdk-17.0.4.1_linux-x64_bin.tar.gz`
+2. 简化应用名称：`mv  jdk-17.0.4.1_linux-x64_bin  jdk17`
+3. 新建部署目录：`mkdir  -p  /usr/java`
+4. 指定部署目录：`mv  jdk17  /usr/java/`
 
-**介绍配置全局环境变量**：vim /etc/profile
+**介绍配置全局环境变量**：`vim /etc/profile`
 
 ```bash
 JAVA_HOME=/usr/java/jdk17
@@ -143,7 +144,7 @@ export JAVA_HOME CLASS_PATH PATH
 source /etc/profile
 ```
 
-关于环境变量更多配置可参考个人公众号关于JDK17的介绍。
+关于环境变量更多配置可参考个人站内或者公众号关于JDK17的简单介绍。
 
 
 
@@ -214,13 +215,13 @@ PS D:\work> curl http://192.168.245.132:8081/demo/getStu
 cat  /opt/test/springboot.log 
 ```
 
-使用 vim 查看
+使用 `vim` 查看
 
 ```bash 
 vim  /opt/test/springboot.log
 ```
 
-使用 tail 命令查看
+使用 `tail` 命令查看
 
 ```bash
 tail -f /opt/test/springboot.log
@@ -235,18 +236,20 @@ tail -n 5 /opt/test/springboot.log
 
 **注意**：带参运行方式，开发或者测试时，可以运用上，便于调试。
 
-参数一：--server.port=9999 代表指定服务端口运行，不添加则使用默认设置服务端口
-参数二：-Dspring.profiles.active=prod 指定环境(eg：dev：开发环境、prod：生产环境、test：测试环境）
+- 参数一：`--server.port=9999` 代表指定服务端口运行，不添加则使用默认设置服务端口
+- 参数二：`-Dspring.profiles.active=prod` 指定环境(dev：开发环境、prod：生产环境、test：测试环境）
 
-**Windows平台** 
 
-指定服务API端口：--server.port=9999
+
+### Windows 平台 
+
+指定服务API端口：`--server.port=9999`
 
 ```bash
 java -jar springboot-test-nacos.jar --server.port=9999
 ```
 
-指定服务运行（生产）环境：-Dspring.profiles.active=prod
+指定服务运行（生产）环境：`-Dspring.profiles.active=prod`
 
 ```powershell
 java -jar "-Dspring.profiles.active=prod" demo-0.0.1-SNAPSHOT.jar
@@ -254,7 +257,7 @@ java -jar "-Dspring.profiles.active=prod" demo-0.0.1-SNAPSHOT.jar
 
 
 
-**Linux（RHEL系列）平台**
+### Linux 平台
 
 采用默认形式指定运行（生产）环境，输出日志到 test.log 文件：
 
@@ -278,9 +281,9 @@ nohup /usr/java/jdk-17.0.4.1/bin/java -jar /opt/test/springboot-test-0.0.1-SNAPS
 
 
 
-## Linux & Win 监控运行中的服务
+## 监控运行中的服务
 
-无论是 Linux 平台还是 Windows 平台，netstat 命令基本用法还是需要掌握的，对于开发、测试、运维都比较重要。
+无论是 Linux 平台还是 Windows 平台，`netstat` 命令基本用法还是需要掌握的，对于开发、测试、运维都比较重要。
 
 使用 netstat 监控如下服务：
 
@@ -294,11 +297,7 @@ nohup /usr/java/jdk-17.0.4.1/bin/java -jar /opt/test/springboot-test-0.0.1-SNAPS
 
 
 
-**Linux （REHL系列） 平台查询运行中的nacos服务**
-
-```bash
-netstat -tlunp | grep 8848;netstat -tlunp | grep 9848;netstat -tlunp | grep 9849
-```
+### Windows 平台
 
 **Windows 平台查询运行中的nacos服务**
 
@@ -324,6 +323,50 @@ java.exe                      8220 Console                    1    449,472 K
 ```
 
 
+
+**Windows 平台查看运行中的springboot服务**
+
+```bash
+netstat -ano | findstr 8081;netstat -ano | findstr 8082;netstat -ano | findstr 8083
+```
+
+**参数含义**：
+
+- -a： 显示所有连接和侦听端口。
+- -n：以数字形式显示地址和端口号。
+- -o：显示拥有的与每个连接关联的进程 ID。
+
+更多参数使用，请查看帮助命令：
+
+```bash
+netstat help
+```
+
+
+
+**Windows 平台查看nacos、prometheus、grafana服务进程**
+
+```bash
+tasklist | findstr nacos;tasklist | findstr prometheus;tasklist | findstr grafana;
+```
+
+
+
+**Windows 平台查看nacos、prometheus、grafana服务端口**
+
+```bash
+netstat -ano | findstr 3000;netstat -ano | findstr 8848;netstat -ano | findstr 9090
+```
+
+
+
+### Linux 平台
+
+**Linux （REHL系列） 平台查询运行中的nacos服务**
+
+```bash
+netstat -tlunp | grep 8848;netstat -tlunp | grep 9848;netstat -tlunp | grep 9849
+```
 
 
 
@@ -359,28 +402,6 @@ netstat -h
 
 
 
-
-
-**Windows 平台查看运行中的springboot服务**
-
-```bash
-netstat -ano | findstr 8081;netstat -ano | findstr 8082;netstat -ano | findstr 8083
-```
-
-**参数含义**：
-
-- -a： 显示所有连接和侦听端口。
-- -n：以数字形式显示地址和端口号。
-- -o：显示拥有的与每个连接关联的进程 ID。
-
-更多参数使用，请查看帮助命令：
-
-```bash
-netstat help
-```
-
-
-
 **RHEL 系列查看nacos、prometheus、grafana服务进程**
 
 ps命令监控服务三种方式：
@@ -411,18 +432,6 @@ ps -aux | grep nacos| grep -v "grep"
 
 
 
-
-
-**Windows 平台查看nacos、prometheus、grafana服务进程**
-
-```bash
-tasklist | findstr nacos;tasklist | findstr prometheus;tasklist | findstr grafana;
-```
-
-
-
-
-
 **RHEL 系列查看nacos、prometheus、grafana服务端口**
 
 ```bash
@@ -433,14 +442,6 @@ tcp6       0      0 :::9090                 :::*                    LISTEN      
 ```
 
 ![](https://s1.ax1x.com/2023/04/20/p9kL2xs.png)
-
-
-
-**Windows 平台查看nacos、prometheus、grafana服务端口**
-
-```bash
-netstat -ano | findstr 3000;netstat -ano | findstr 8848;netstat -ano | findstr 9090
-```
 
 
 
@@ -840,9 +841,9 @@ grafana运行默认端口是3000，访问：http://192.168.245.132:3000/
 
 **参考资料**：
 
-- nacos2.x官方文档：[https://nacos.io/zh-cn/docs/v2/quickstart/quick-start.html](https://nacos.io/zh-cn/docs/v2/quickstart/quick-start.html)
-- prometheus官方文档：[https://prometheus.io/docs/prometheus/2.37/getting_started/](https://prometheus.io/docs/prometheus/2.37/getting_started/)
-- grafana官方文档：[https://grafana.com/docs/grafana/latest/getting-started/](https://grafana.com/docs/grafana/latest/getting-started/)
+- [nacos2.x 官方文档](https://nacos.io/zh-cn/docs/v2/quickstart/quick-start.html)
+- [prometheus 官方文档]([Getting started | Prometheus](https://prometheus.io/docs/prometheus/latest/getting_started/))
+- [grafana 官方文档](https://grafana.com/docs/grafana/latest/getting-started/)
 
 
 
