@@ -8,20 +8,24 @@ categories:
 
 ![](https://s1.ax1x.com/2022/07/19/j7EO6s.png)
 
+MySQL 文档整理合集（5.6、5.7、8.0、8.1）：
+
+链接: https://pan.baidu.com/s/1jGkGarWZWVnzQ9so0D8maA?pwd=8kff 
+
+提取码: 8kff 
+
+
+当你看到这篇教程时，MySQL 目前最新GA（稳定）版本更新到了MySQL8.0.34或者更高， [Changes in MySQL 8.0.34 (2023-07-18, General Availability)](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-34.html) ，创新版 Innovation [MySQL 8.1.0](https://dev.mysql.com/doc/refman/8.1/en/)。
+
+MySQL 发行说明：[https://dev.mysql.com/doc/relnotes/mysql/8.0/en/](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/) 。
+
 **注意**：如果你想在 MySQL 官网获取 8.0.29 ，是找不到资源的。因为出现了重大问题，官网直接移除了下载资源。推荐跳过 MySQL 8.0.29，升级到更高的版本或者使用历史稳定版本。
 
 > Important
 > This release is no longer available for download. It was removed due to a critical issue that could cause data in InnoDB
 > tables having added columns to be interpreted incorrectly. Please upgrade to MySQL 8.0.30 instead.
 
-
-当你看到这篇教程时，MySQL 目前最新GA（稳定）版本更新到了MySQL8.0.33， [Changes in MySQL 8.0.33 (2023-04-18, General Availability)](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-33.html)。
-
-MySQL 发行说明：[https://dev.mysql.com/doc/relnotes/mysql/8.0/en/](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/)
-
-
-
-﻿﻿﻿﻿MySQL8.0.28详细安装教程。Windows10 安装 MariaDB 与 MySQL8.0 同时共存，Linux发行版RHEL7系列安装MySQL8.0详细教程。Windows10下使用MSI文件安装MySQL8.0.28注意事项，多实例共存解决方法，MySQL官方示例库与文档地址。
+MySQL8.0.28详细安装教程。Windows10 安装 MariaDB 与 MySQL8.0 同时共存，Linux发行版RHEL7系列安装MySQL8.0详细教程。Windows10下使用MSI文件安装MySQL8.0.28注意事项，多实例共存解决方法，MySQL官方示例库与文档地址。
 
 如果对你有帮助，我很荣幸。如果有误导你的地方，我表示抱歉。所有总结仅供参考。
 
@@ -1054,6 +1058,8 @@ GRANT 'old_app_dev'@'localhost' TO 'new_app_dev1'@'localhost';
 
 ### 3、测试创建用户
 
+友情提示：关于密码验证插件请参考官方文档，第六章节安全篇  [Security Components and Plugins](https://dev.mysql.com/doc/refman/8.0/en/security-plugins.html)
+
 **3.1、创建普通用户并授权远程登录**
 
 创建一个普通用户test
@@ -1400,6 +1406,8 @@ try {
 
 **目的**：使用纯JDBC测试，或者ORM框架mybatis、JPA、或者hibernate都行，最终达到对数据库进行最基本的增删改查。
 
+
+{% note primary Java 版 JDBC连接MySQL数据库示例代码如下 %}
 ```java
 package com.example.demo.dao;
 
@@ -1465,22 +1473,30 @@ public class TestConnMySQL8 {
     }
 }
 ```
-
+{% endnote %}
 
 
 
 
 **参考资料**：
 
-- MySQL8.0官方文档：[https://dev.mysql.com/doc/refman/8.0/en/](https://dev.mysql.com/doc/refman/8.0/en/)
+- [MySQL8.0官方文档](https://dev.mysql.com/doc/refman/8.0/en/)
 
+
+MySQL 文档整理合集（5.6、5.7、8.0、8.1）：
+
+链接: https://pan.baidu.com/s/1jGkGarWZWVnzQ9so0D8maA?pwd=8kff 
+
+提取码: 8kff 
+
+文档如何食用，请阅读 docs 目录的 ReadME 文件。
 
 
 # 总结
 
 以上就是本次MySQL8.0.28安装与使用的全部内容，希望能对你的工作与学习有所帮助。在公众号：文正耕耘（ID：dywangk）上更新的可能要快一点，目前还在完善中。**能看到这里的，都是帅哥靓妹**。如果感觉总结的不到位，也希望能留下您宝贵的意见，我会在文章中进行调整优化。
 
-原创不易，转载也请标明出处和作者，已经上传至github仓库wangk-stick。
+原创不易，转载也请标明出处和作者。
 
 
 
