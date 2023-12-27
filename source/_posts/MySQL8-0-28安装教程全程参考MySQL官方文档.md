@@ -421,7 +421,7 @@ Linux或者Unix安装MySQL有四种方式：
 
 ```bash
 $> groupadd mysql     #创建mysql组                  
-$> useradd -r -g mysql -s /bin/false mysql    #创建mysql用户并做软链接 
+$> useradd -r -g mysql -s /bin/false mysql    #创建mysql用户（没有服务器主机登录权限的用户） 
 $> cd /usr/local      #切换到local目录                  
 $> tar xvf /path/to/mysql-VERSION-OS.tar.xz   #解压tar包mysql文件 
 $> ln -s full-path-to-mysql-VERSION-OS mysql  #创建软链接
