@@ -334,7 +334,7 @@ dnf -y install ncurses-compat-libs
 > 2.2 Installing MySQL on Unix/Linux Using Generic Binaries
 
 1. 创建 mysql 组；
-2. 创建 mysql 用户并做软链接； 
+2. 创建 mysql 用户（没有服务器主机登录权限的用户）； 
 3. 切换到 local 目录；
 4. 解压 tar 包 mysql 文件；
 5. 创建软链接，full-path-to-mysql-VERSION-OS 是你解压后 mysql 文件目录名称；
@@ -624,7 +624,7 @@ dnf remove mysql-community-icu-data-files-8.0.33-1.el9.x86_64
 > 2.9 Installing MySQL from Source
 
 1. 新增 mysql 管理组
-2. 新增 mysql 用户
+2. 新增 mysql 用户（没有服务器主机登录权限的用户）
 3. 解压 mysql 安装包
 4. 创建 bld 目录
 5. 切换到 bld 目录
